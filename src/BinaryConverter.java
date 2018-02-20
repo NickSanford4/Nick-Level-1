@@ -27,7 +27,7 @@ public class BinaryConverter implements ActionListener {
 		answer = new JTextField(20);
 		panel.add(answer);
 		frame.setTitle("Give me binary or give me death!!!");
-		frame.setSize(600, 60);
+		frame.setSize(700, 60);
 		frame.setVisible(true);
 		panel.add(button);
 		button.setLabel("Convert");
