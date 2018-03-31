@@ -9,9 +9,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class SlotMachine implements ActionListener{
+public class SlotMachine implements ActionListener {
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	JButton button = new JButton();
@@ -35,7 +36,8 @@ public class SlotMachine implements ActionListener{
 		button.addActionListener(this);
 		setLabels();
 	}
-	public void setLabels() throws MalformedURLException{	
+
+	public void setLabels() throws MalformedURLException {
 		Random gen = new Random();
 		int number = gen.nextInt(4);
 		if (number == 0) {
@@ -51,46 +53,40 @@ public class SlotMachine implements ActionListener{
 			label = this.createLabelImage("Banana.jpg");
 		}
 
-		
-		
-		
-		number = gen.nextInt(4);
-		if (number == 0) {
+		int number1 = gen.nextInt(4);
+		if (number1 == 0) {
 			label2 = this.createLabelImage("Jackpot.jpg");
 		}
-		if (number == 1) {
+		if (number1 == 1) {
 			label2 = this.createLabelImage("Cherry.jpg");
 		}
-		if (number == 2) {
+		if (number1 == 2) {
 			label2 = this.createLabelImage("Orange.jpg");
 		}
-		if (number == 3) {
+		if (number1 == 3) {
 			label2 = this.createLabelImage("Banana.jpg");
 		}
-		
-		
-		
-		
-		number = gen.nextInt(4);
-		if (number == 0) {
+
+		int number2 = gen.nextInt(4);
+		if (number2 == 0) {
 			label3 = this.createLabelImage("Jackpot.jpg");
 		}
-		if (number == 1) {
+		if (number2 == 1) {
 			label3 = this.createLabelImage("Cherry.jpg");
 		}
-		if (number == 2) {
+		if (number2 == 2) {
 			label3 = this.createLabelImage("Orange.jpg");
 		}
-		if (number == 3) {
+		if (number2 == 3) {
 			label3 = this.createLabelImage("Banana.jpg");
 		}
-		
 		panel.add(label);
 		panel.add(label2);
 		panel.add(label3);
-		panel.add(label4);
 		frame.pack();
-		
+		if (number == number1 && number2 == number) {
+			JOptionPane.showMessageDialog(null, "You Win!!!");
+		}
 	}
 
 	private JLabel createLabelImage(String fileName) throws MalformedURLException {
@@ -106,15 +102,18 @@ public class SlotMachine implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource().equals (button)) {
+		if (e.getSource().equals(button)) {
 			try {
+				panel.remove(label);
+				panel.remove(label2);
+				panel.remove(label3);
 				setLabels();
 			} catch (MalformedURLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
-		
+
 	}
-	
+
 }
