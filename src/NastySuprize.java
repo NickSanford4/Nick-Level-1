@@ -27,6 +27,8 @@ public class NastySuprize implements ActionListener {
 		button.addActionListener(this);
 		button2.setText("Treat");
 		button2.addActionListener(this);
+		panel.add(label);
+		frame.pack();
 	}
 
 	public static void main(String[] args) throws MalformedURLException {
@@ -35,29 +37,31 @@ public class NastySuprize implements ActionListener {
 	}
 
 	@Override
-
 	public void actionPerformed(ActionEvent e) {
 		JButton buttonPressed = (JButton) e.getSource();
 		// TODO Auto-generated method stub
-		if (buttonPressed == button) {
+		if (buttonPressed.equals(button)) {
 			try {
+				panel.remove(label);
 				label = this.createLabelImage("Puppy.jpg");
+				panel.add(label);
+				frame.pack();
 			} catch (MalformedURLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 
 		}
-		if (buttonPressed == button2) {
+		if (buttonPressed.equals(button2)) {
 			try {
-				label = this.createLabelImage("Zombie.jpg");
+				panel.remove(label);
+				label = createLabelImage("Zombie.jpg");
+				frame.add(label);
+				frame.pack();
 			} catch (MalformedURLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-
-		}
-		if (buttonPressed == button2) {
 
 		}
 
