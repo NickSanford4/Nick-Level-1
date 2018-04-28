@@ -1,11 +1,14 @@
+int StartTime;
 int frogX = 225;
 int frogY = 575;
-Car car1 = new Car(-50, 100, 50, -6);
-Car car2 = new Car(-50, 200, 50, 3);
-Car car3 = new Car(-50, 300, 50, 4);
-Car car4 = new Car(-50, 400, 50, -5);
-Car car5 = new Car(-50, 500, 50, 6);
+boolean check = false;
+Car car1 = new Car(-50, 100, 50, -11);
+Car car2 = new Car(-50, 200, 50, 9);
+Car car3 = new Car(-50, 300, 50, 10);
+Car car4 = new Car(-50, 400, 50, -8);
+Car car5 = new Car(-50, 500, 50, 9);
 void draw(){
+  if(check==false){
   background(500, 90,30);
 fill(0, 0, 250);
 ellipse(frogX, frogY, 40, 40);
@@ -39,9 +42,18 @@ if(intersects(car5)){
 frogX=225;
 frogY=575;
 }
+  }
+if(frogY<50 && check==false){
+  int EndTime=millis();
+  text("You Win",100,100);
+  int Duration=EndTime-StartTime;
+  text("time="+Duration,200,100);
+  check=true;
+}
 }
 void setup(){
    size(400, 600);
+   StartTime=millis();
 }
    void keyPressed()
 {
@@ -103,7 +115,7 @@ void move(){
 }
 }
 boolean intersects(Car car) {
-      if ((frogY > car.getY() && frogY < car.getY()+50) && (frogX > car.getX() && frogX < car.getX()+car.getSize()))
+      if ((frogY > car.getY() && frogY < car.getY()+50) && (frogX > car.getX()-25 && frogX < car.getX() + 25 + car.getSize()))
       {
      
              return true;
