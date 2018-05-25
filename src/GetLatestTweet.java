@@ -24,8 +24,6 @@ public class GetLatestTweet implements ActionListener{
 		frame.setSize(400, 60);
 		frame.setTitle("The Amazing Tweet Retriever");
 		panel.add(tf);
-		
-		
 		panel.add(button2);
 		button2.setText("Search the Twitterverse");
 		tf.addActionListener(this);

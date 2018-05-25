@@ -1,10 +1,3 @@
-/*
- *    Copyright (c) The League of Amazing Programmers 2013-2018
- *    Level 1
- */
-
-
-
 import java.applet.AudioClip;
 import java.io.File;
 import java.io.IOException;
