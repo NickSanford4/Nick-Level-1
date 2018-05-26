@@ -26,6 +26,8 @@ public class MagicBox extends JPanel implements Runnable, MouseListener{
 
 	BufferedImage backgroundImage;
 
+	Song person = new Song("Person Talking.wav");
+	
 	public static void main(String[] args) throws Exception {
 		SwingUtilities.invokeLater(new MagicBox());
 	}
@@ -73,8 +75,30 @@ public class MagicBox extends JPanel implements Runnable, MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("click");
-		speak("click" words)
+		//System.out.println("click");
+		System.out.println("x="+e.getX() +"  y="+ e.getY());
+		if (getDistance(348,647,e.getX(), e.getY())<30) {
+			palace.speak("You found something" );
+		}
+		
+		if (getDistance(334,168,e.getX(), e.getY())<50) {
+			palace.speak("You found something" );
+		}
+		if (getDistance(196,545,e.getX(), e.getY())<30) {
+			Song IrishSong = new Song("IrishSong.mp3");
+			 IrishSong.play();
+		}
+		if (getDistance(186,865,e.getX(), e.getY())<30) {
+			Song IrishSong = new Song("IrishSong.mp3");
+			 IrishSong.play();
+		}
+		if (getDistance(186,865,e.getX(), e.getY())<30) {
+			Song IrishSong = new Song("IrishSong.mp3");
+			 IrishSong.play();
+		}
+			 if (getDistance(80,92,e.getX(), e.getY())<50) {
+				 palace.speak("You found a dot" );		
+		}
 	}
 
 	@Override
@@ -98,6 +122,11 @@ public class MagicBox extends JPanel implements Runnable, MouseListener{
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+	int getDistance (int x1, int y1, int x2, int y2){
+		int xy = Math.abs(Math.abs(x1-x2) + Math.abs(y1-y2));
+		return xy;
 		
 	}
 
